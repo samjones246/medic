@@ -11,6 +11,36 @@ public class limb : MonoBehaviour
     bool inRange = false;
     public Vector3 forward;
     Color baseColor;
+    public Color activeColor = Color.green;
+    public Vector3 holdOffset;
+    public Vector3 holdAngle;
+    private bool _isPickedUp;
+    bool IsPickedUp
+    {
+        get
+        {
+            return _isPickedUp;
+        }
+        set
+        {
+            _isPickedUp = value;
+            GetComponent<Rigidbody>().useGravity = !value;
+
+            if (value)
+            {
+                transform.parent = player.transform;
+
+                transform.localPosition = holdOffset;
+                transform.localRotation = Quaternion.Euler(holdAngle);
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+            }
+            else
+            {
+                transform.parent = null;
+            }
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
