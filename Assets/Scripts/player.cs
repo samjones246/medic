@@ -7,6 +7,8 @@ public class player : MonoBehaviour
     float mult = 0.25f;
     float h = 0;
     float v = 0;
+    float targetY = 0f;
+    public float turnSpeed = 360f;
     void Awake () {
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 45;
@@ -22,10 +24,12 @@ public class player : MonoBehaviour
     {
         h = Input.GetAxisRaw("Horizontal");
         v = Input.GetAxisRaw("Vertical");
+        targetY = -Mathf.Rad2Deg * Mathf.Atan2(v, h);
         Vector3 pos = this.transform.position;
         float moveX = h * mult;
         float moveZ = v * mult;
-        this.transform.position = new Vector3(pos.x+moveX, pos.y, pos.z+moveZ);
-        transform.rotation = Quaternion.Euler(0,45,0);
+        transform.position = new Vector3(pos.x+moveX, pos.y, pos.z+moveZ);
+        float step = turnSpeed * Time.deltaTime;
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, targetY, 0), step);
     }
 }

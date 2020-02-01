@@ -33,7 +33,6 @@ public class limb : MonoBehaviour
                 if(inRange){
                     up = true;
                     transform.parent = player.transform;
-                    transform.rotation = Quaternion.Euler(0, player.transform.rotation.y, transform.rotation.ToEuler().z);
                 }
             }else{
                 up = false;
@@ -43,6 +42,7 @@ public class limb : MonoBehaviour
         }
         if(up){
             transform.localPosition = new Vector3(1, 1, 0);
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, player.transform.rotation.eulerAngles.y + 90, transform.rotation.eulerAngles.z);
         }
     }
 }
