@@ -24,59 +24,12 @@ public class player : MonoBehaviour
     {
         h = Input.GetAxisRaw("Horizontal");
         v = Input.GetAxisRaw("Vertical");
-        bool moving = true;
-        if(h > 0)
-        {
-            if(v > 0)
-            {
-                targetY = -45;
-            }else if (v < 0)
-            {
-                targetY = 45;
-            }
-            else
-            {
-                targetY = 0;
-            }
-        }else if (h < 0)
-        {
-            if (v > 0)
-            {
-                targetY = -135;
-            }
-            else if (v < 0)
-            {
-                targetY = 135;
-            }
-            else
-            {
-                targetY = 180;
-            }
-        }
-        else
-        {
-            if (v > 0)
-            {
-                targetY = -90;
-            }
-            else if (v < 0)
-            {
-                targetY = 90;
-            }
-            else
-            {
-                //moving = false;
-            }
-        }
+        targetY = -Mathf.Rad2Deg * Mathf.Atan2(v, h);
         Vector3 pos = this.transform.position;
         float moveX = h * mult;
         float moveZ = v * mult;
         transform.position = new Vector3(pos.x+moveX, pos.y, pos.z+moveZ);
-        //transform.rotation = Quaternion.Euler(0, targetY, 0);
         float step = turnSpeed * Time.deltaTime;
-        if (moving)
-        {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, targetY, 0), step);
-        }
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, targetY, 0), step);
     }
 }
