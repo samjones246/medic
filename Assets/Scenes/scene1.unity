@@ -323,6 +323,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1278450639}
+  offset: {x: 0, y: 0, z: 0}
+  minGrab: 3
+  forward: {x: 0, y: 0, z: 0}
 --- !u!1 &879737642
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c307e87b731e5480eb0a79bb384b1a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnSpeed: 360
 --- !u!65 &1278450642
 BoxCollider:
   m_ObjectHideFlags: 0

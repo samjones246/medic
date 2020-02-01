@@ -24,7 +24,10 @@ public class player : MonoBehaviour
     {
         h = Input.GetAxisRaw("Horizontal");
         v = Input.GetAxisRaw("Vertical");
-        targetY = -Mathf.Rad2Deg * Mathf.Atan2(v, h);
+        if (!(h == 0) || !(v == 0))
+        {
+            targetY = -Mathf.Rad2Deg * Mathf.Atan2(v, h);
+        }
         Vector3 pos = this.transform.position;
         float moveX = h * mult;
         float moveZ = v * mult;
