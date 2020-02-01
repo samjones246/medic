@@ -5,6 +5,8 @@ using UnityEngine;
 public class player : MonoBehaviour
 {
     float mult = 0.25f;
+    float h = 0;
+    float v = 0;
     void Awake () {
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 45;
@@ -18,9 +20,11 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        h = Input.GetAxisRaw("Horizontal");
+        v = Input.GetAxisRaw("Vertical");
         Vector3 pos = this.transform.position;
-        float moveX = Input.GetAxis("Horizontal") * mult;
-        float moveZ = Input.GetAxis("Vertical") * mult;
+        float moveX = h * mult;
+        float moveZ = v * mult;
         this.transform.position = new Vector3(pos.x+moveX, pos.y, pos.z+moveZ);
     }
 }
