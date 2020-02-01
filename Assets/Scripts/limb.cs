@@ -4,15 +4,40 @@ using UnityEngine;
 
 public class limb : MonoBehaviour
 {
-    bool up = false;
     public GameObject player;
-    public Vector3 offset;
-    public float minGrab = 3.0f;
     bool inRange = false;
-    public Vector3 forward;
-    Color baseColor;
-    // Start is called before the first frame update
 
+    Color baseColor;
+    public Color activeColor = Color.green;
+
+    private bool _isPickedUp;
+    bool IsPickedUp
+    {
+        get
+        {
+            return _isPickedUp;
+        }
+        set
+        {
+            _isPickedUp = value;
+            GetComponent<Rigidbody>().useGravity = !value;
+
+            if (value)
+            {
+                transform.parent = player.transform;
+
+                transform.localPosition = new Vector3(1, 1, 0);
+                transform.localRotation = Quaternion.Euler(0, 90, 90);
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+            }
+            else
+            {
+                transform.parent = null;
+            }
+        }
+    }
+
+    // Start is called before the first frame update
     void Start()
     {
         baseColor = GetComponent<Renderer>().material.color;
@@ -37,29 +62,21 @@ public class limb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        forward = player.transform.forward;
-
-        if(Input.GetKeyDown("e")){
-            if(!up){
-                if(inRange){
-                    up = true;
-                    transform.parent = player.transform;
-                    GetComponent<Renderer>().material.color = baseColor;
-                }
-            }else{
-                up = false;
-                transform.position = transform.position - new Vector3(0, 1, 0);
-                transform.parent = null;
+        if (Input.GetKeyDown("e"))
+        {
+            if (IsPickedUp)
+            {
+                IsPickedUp = false;
+            }
+            else if (inRange)
+            {
+                IsPickedUp = true;
             }
         }
-        if(up){
-            transform.localPosition = new Vector3(1, 1, 0);
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, player.transform.rotation.eulerAngles.y + 90, transform.rotation.eulerAngles.z);
-        }
 
-        if (inRange && !up)
+        if (inRange && !IsPickedUp)
         {
-            GetComponent<Renderer>().material.color = Color.green;
+            GetComponent<Renderer>().material.color = activeColor;
         }
         else
         {
