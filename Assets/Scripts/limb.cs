@@ -12,27 +12,39 @@ public class limb : MonoBehaviour
     public Vector3 forward;
     Color baseColor;
     // Start is called before the first frame update
+
     void Start()
     {
         baseColor = GetComponent<Renderer>().material.color;
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject == player)
+        {
+            inRange = true;
+        }
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.gameObject == player)
+        {
+            inRange = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         forward = player.transform.forward;
-        if(Vector3.Distance(player.transform.position, transform.position)<minGrab && !up){
-            inRange = true;
-            GetComponent<Renderer>().material.color = Color.green;
-        }else{
-            inRange = false;
-            GetComponent<Renderer>().material.color = baseColor;
-        }
+
         if(Input.GetKeyDown("e")){
             if(!up){
                 if(inRange){
                     up = true;
                     transform.parent = player.transform;
+                    GetComponent<Renderer>().material.color = baseColor;
                 }
             }else{
                 up = false;
@@ -43,6 +55,15 @@ public class limb : MonoBehaviour
         if(up){
             transform.localPosition = new Vector3(1, 1, 0);
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, player.transform.rotation.eulerAngles.y + 90, transform.rotation.eulerAngles.z);
+        }
+
+        if (inRange && !up)
+        {
+            GetComponent<Renderer>().material.color = Color.green;
+        }
+        else
+        {
+            GetComponent<Renderer>().material.color = baseColor;
         }
     }
 }
