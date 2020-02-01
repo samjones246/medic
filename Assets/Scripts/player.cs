@@ -26,5 +26,6 @@ public class player : MonoBehaviour
         float moveX = h * mult;
         float moveZ = v * mult;
         this.transform.position = new Vector3(pos.x+moveX, pos.y, pos.z+moveZ);
+        transform.rotation = Quaternion.Euler(0,45,0);
     }
 }
