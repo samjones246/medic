@@ -9,6 +9,7 @@ TagManager:
   - LegL
   - LegR
   - Bed
+  - Patient
   layers:
   - Default
   - TransparentFX

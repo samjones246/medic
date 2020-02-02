@@ -36,18 +36,25 @@ public class patient : MonoBehaviour
         transform.Translate(getupOffset);
         GetComponent<Animator>().SetBool("IsRunning", true);
         going = true;
-        //transform.parent = null;
+        mult *= 2;
     }
 
     private void OnTriggerEnter(Collider c)
     {
         if(c.gameObject.tag == "Bed")
         {
-            //transform.parent = c.gameObject.transform;
-            transform.position = c.gameObject.transform.position + godownOffset;
-            transform.rotation = Quaternion.Euler(godownRotation);
-            GetComponent<Animator>().SetBool("IsRunning", false);
-            going = false;
+            if (c.gameObject.GetComponent<bed>().occupant == null)
+            {
+                transform.position = c.gameObject.transform.position + godownOffset;
+                transform.rotation = Quaternion.Euler(godownRotation);
+                GetComponent<Animator>().SetBool("IsRunning", false);
+                going = false;
+                c.gameObject.GetComponent<bed>().occupant = this.gameObject;
+            }
+            else
+            {
+                transform.Rotate(0, 180, 0);
+            }
         }
     }
 }
