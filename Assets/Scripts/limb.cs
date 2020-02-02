@@ -8,7 +8,7 @@ public class limb : MonoBehaviour
     public bool inRange = false;
 
     Color baseColor;
-    public Color activeColor = Color.green;
+    private Color activeColor = Color.red;
     public Vector3 holdOffset;
     public Vector3 holdAngle;
     private bool _isPickedUp;
