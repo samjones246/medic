@@ -15,6 +15,9 @@ ModelImporter:
   - first:
       74: -623603649343465320
     second: Scene
+  - first:
+      74: -3579208771848967941
+    second: Crawl
   externalObjects: {}
   materials:
     materialImportMode: 1

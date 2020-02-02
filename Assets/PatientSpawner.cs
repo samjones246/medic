@@ -31,12 +31,12 @@ public class PatientSpawner : MonoBehaviour
             Vector3 spawnLocation;
             if (inverted)
             {
-                offset = new Vector3(80, 4, 0);
+                offset = new Vector3(80, 0, 0);
                 spawnRotation = Quaternion.Euler(0, -90, 0);
             }
             else
             {
-                offset = new Vector3(-80, 4, 0);
+                offset = new Vector3(-80, 0, 0);
                 spawnRotation = Quaternion.Euler(0, 90, 0);
             }
             spawnLocation = targetBed.transform.position + offset;
