@@ -75,6 +75,13 @@ public class limb : MonoBehaviour
             }
         }
 
+        if (IsPickedUp)
+        {
+            transform.localPosition = holdOffset;
+            transform.localRotation = Quaternion.Euler(holdAngle);
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
+
         if (inRange && !IsPickedUp)
         {
             GetComponent<Renderer>().material.color = activeColor;
