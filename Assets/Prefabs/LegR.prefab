@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 625748592429228346}
   - component: {fileID: 625748592429228345}
   - component: {fileID: 625748592429228359}
+  - component: {fileID: -3776114974184289635}
   m_Layer: 0
   m_Name: LegR
   m_TagString: LegR
@@ -143,3 +144,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2450844111552760913, guid: fb6d0c5588251b340aecf169fac5ea6b, type: 3}
+--- !u!114 &-3776114974184289635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625748592429228352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c392edaba0c44a84ebd250a86a7fc076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 20
