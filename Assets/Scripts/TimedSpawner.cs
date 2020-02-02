@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class TimedSpawner : MonoBehaviour
 {
-    private float deltaTime = 0;
+    private float deltaTime;
     private float nextDelay;
 
     public float delayMin;
@@ -14,6 +14,8 @@ public abstract class TimedSpawner : MonoBehaviour
     void Start()
     {
         nextDelay = Random.Range(delayMin, delayMax);
+        deltaTime = 0;
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame

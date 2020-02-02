@@ -7,6 +7,7 @@ public class Score : MonoBehaviour
     public int score;
     public int lives = 20;
     public GUIStyle style;
+    public GameObject gameOver;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,11 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (lives <= 0)
+        {
+            gameOver.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
     private void OnGUI()
     {

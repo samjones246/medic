@@ -50,7 +50,7 @@ public class patient : MonoBehaviour
                     transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
                 }
             }
-            transform.Translate(0, 0, mult);
+            transform.Translate(0, 0, mult * Time.deltaTime);
         }
         else
         {

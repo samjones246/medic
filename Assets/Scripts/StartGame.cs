@@ -9,6 +9,8 @@ public class StartGame : MonoBehaviour
 
     public void StartGameF()
     {
+        Time.timeScale = 1;
         SceneManager.LoadSceneAsync(sceneBuildIndex, LoadSceneMode.Single);
+        
     }
 }

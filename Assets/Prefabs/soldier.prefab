@@ -137,7 +137,8 @@ MonoBehaviour:
   getupRotation: {x: 90, y: 0, z: 0}
   godownOffset: {x: 0, y: 3.5, z: -7}
   godownRotation: {x: 270, y: 0, z: 180}
-  mult: 0.25
+  missingLegs: 0
+  mult: 10
 --- !u!1 &1611739606155955791
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,8 +31,8 @@ public class player : MonoBehaviour
             targetY = Mathf.Rad2Deg * Mathf.Atan2(h, v);
         }
         Vector3 pos = this.transform.position;
-        float moveX = h * mult;
-        float moveZ = v * mult;
+        float moveX = h * mult * Time.deltaTime;
+        float moveZ = v * mult * Time.deltaTime;
         transform.position = new Vector3(pos.x+moveX, pos.y, pos.z+moveZ);
         float step = turnSpeed * Time.deltaTime;
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, targetY, 0), step);

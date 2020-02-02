@@ -97,8 +97,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  inRange: 0
   activeColor: {r: 0, g: 1, b: 0, a: 1}
-  holdOffset: {x: 1, y: 1, z: -1.5}
+  holdOffset: {x: 1, y: 4, z: -1.5}
   holdAngle: {x: 0, y: 180, z: 180}
 --- !u!54 &625748592429228346
 Rigidbody:
