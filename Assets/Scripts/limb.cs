@@ -9,9 +9,10 @@ public class limb : MonoBehaviour
 
     Color baseColor;
     public Color activeColor = Color.green;
-
+    public Vector3 holdOffset;
+    public Vector3 holdAngle;
     private bool _isPickedUp;
-    bool IsPickedUp
+    public bool IsPickedUp
     {
         get
         {
@@ -26,8 +27,8 @@ public class limb : MonoBehaviour
             {
                 transform.parent = player.transform;
 
-                transform.localPosition = new Vector3(1, 1, 0);
-                transform.localRotation = Quaternion.Euler(0, 90, 90);
+                transform.localPosition = holdOffset;
+                transform.localRotation = Quaternion.Euler(holdAngle);
                 GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
             else
@@ -41,6 +42,7 @@ public class limb : MonoBehaviour
     void Start()
     {
         baseColor = GetComponent<Renderer>().material.color;
+        player = GameObject.FindWithTag("Player");
     }
 
     void OnTriggerEnter(Collider collider)
@@ -72,6 +74,13 @@ public class limb : MonoBehaviour
             {
                 IsPickedUp = true;
             }
+        }
+
+        if (IsPickedUp)
+        {
+            transform.localPosition = holdOffset;
+            transform.localRotation = Quaternion.Euler(holdAngle);
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
 
         if (inRange && !IsPickedUp)
