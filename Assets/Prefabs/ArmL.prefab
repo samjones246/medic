@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4915960826886270624}
   - component: {fileID: 4915960826886270627}
   - component: {fileID: 4915960826886270685}
+  - component: {fileID: -2804893918065396202}
   m_Layer: 0
   m_Name: ArmL
   m_TagString: ArmL
@@ -143,3 +144,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 76380318061686115, guid: fb6d0c5588251b340aecf169fac5ea6b, type: 3}
+--- !u!114 &-2804893918065396202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4915960826886270682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c392edaba0c44a84ebd250a86a7fc076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 20
