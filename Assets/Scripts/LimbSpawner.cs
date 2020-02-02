@@ -13,6 +13,7 @@ public class LimbSpawner : TimedSpawner
 
     public float speed;
     public float rotateSpeed;
+    public float height;
 
     protected override void Spawn()
     {
@@ -21,6 +22,8 @@ public class LimbSpawner : TimedSpawner
         Vector3 position = target.transform.position + new Vector3(offset.x, Random.Range(0, 2), offset.y);
         Vector3 velocity = (target.transform.position - position) * speed;
         velocity += Random.insideUnitSphere * speed * 0.01f;
+
+        velocity.y += Random.Range(height / 2, height);
 
         Quaternion rotation = Random.rotationUniform;
         Vector3 rotationVelocity = Random.insideUnitSphere * rotateSpeed;

@@ -242,8 +242,9 @@ MonoBehaviour:
   effect: {fileID: 6400330079403641116, guid: 93f2d3eb40874304481c2c80ffef1d1a, type: 3}
   target: {fileID: 1899948158}
   range: 50
-  speed: 0.7
+  speed: 0.5
   rotateSpeed: 50
+  height: 15
 --- !u!1 &30946383
 GameObject:
   m_ObjectHideFlags: 0
