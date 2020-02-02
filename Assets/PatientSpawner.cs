@@ -9,7 +9,9 @@ public class PatientSpawner : MonoBehaviour
     public List<GameObject> rightBeds;
 
     public float minDelay;
+    public float minMinDelay;
     public float maxDelay;
+    public float minMaxDelay;
     public float delayRate = 0.01f;
 
     public float limbMissingChance;
@@ -56,8 +58,8 @@ public class PatientSpawner : MonoBehaviour
             PrepareLimbs(soldier);
             lastSpawn = Time.time;
 
-            minDelay *= 1 - Time.timeSinceLevelLoad * delayRate;
-            maxDelay *= 1 - Time.timeSinceLevelLoad * delayRate;
+            minDelay = Mathf.Max(minDelay *= 1 - Time.timeSinceLevelLoad * delayRate, minMinDelay);
+            maxDelay = Mathf.Max(maxDelay *= 1 - Time.timeSinceLevelLoad * delayRate, minMaxDelay);
             delay = Random.Range(minDelay, maxDelay);
         }
     }
