@@ -5,8 +5,10 @@ using UnityEngine;
 public class LimbSpawner : TimedSpawner
 {
     public List<GameObject> toSpawn;
+    public GameObject effect;
 
     public GameObject target;
+
     public float range;
 
     public float speed;
@@ -29,5 +31,7 @@ public class LimbSpawner : TimedSpawner
         Rigidbody rigidBody = obj.GetComponent<Rigidbody>();
         rigidBody.angularVelocity = rotationVelocity;
         rigidBody.velocity = velocity;
+
+        Instantiate(effect, position, Quaternion.identity);
     }
 }
