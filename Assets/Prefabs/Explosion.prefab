@@ -4844,8 +4844,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4c4de526f5abd2a4ead0995673652aa5, type: 3}
   - {fileID: 8300000, guid: b5b4f987dee267a4bad4fea6baca7b64, type: 3}
   - {fileID: 8300000, guid: 55d76c46dd77d804a992e52872dccb62, type: 3}
-  minVolume: 0.2
-  maxVolume: 0.7
+  minVolume: 0.1
+  maxVolume: 0.6
 --- !u!82 &4016841370294093232
 AudioSource:
   m_ObjectHideFlags: 0
