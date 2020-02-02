@@ -5,7 +5,8 @@ using UnityEngine;
 public class PatientSpawner : MonoBehaviour
 {
     public List<GameObject> soldierPrefabs;
-    public List<GameObject> beds;
+    public List<GameObject> leftBeds;
+    public List<GameObject> rightBeds;
 
     public float minDelay;
     public float maxDelay;
@@ -13,7 +14,6 @@ public class PatientSpawner : MonoBehaviour
 
     public float limbMissingChance;
     public float score;
-    public bool inverted = false;
     float lastSpawn;
     float delay;
     // Start is called before the first frame update
@@ -28,11 +28,19 @@ public class PatientSpawner : MonoBehaviour
     {
         if(Time.time - lastSpawn >= delay)
         {
-            GameObject targetBed = beds[Random.Range(0, beds.Count)];
+            int inverted = Random.Range(0, 2);
+            GameObject targetBed;
+            if (inverted == 1){
+                targetBed = rightBeds[Random.Range(0, rightBeds.Count)];
+            }
+            else
+            {
+                targetBed = leftBeds[Random.Range(0, leftBeds.Count)];
+            }
             Vector3 offset;
             Quaternion spawnRotation;
             Vector3 spawnLocation;
-            if (inverted)
+            if (inverted==1)
             {
                 offset = new Vector3(80, 0, 0);
                 spawnRotation = Quaternion.Euler(0, -90, 0);
