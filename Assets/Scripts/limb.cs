@@ -12,7 +12,7 @@ public class limb : MonoBehaviour
     public Vector3 holdOffset;
     public Vector3 holdAngle;
     private bool _isPickedUp;
-    bool IsPickedUp
+    public bool IsPickedUp
     {
         get
         {

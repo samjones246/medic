@@ -22,27 +22,34 @@ public class bed : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
-        List<string> limbs = new List<string>(new string[]{ "ArmL", "ArmR", "LegL", "LegR" });
-        Debug.Log(collision.gameObject.name);
-        if (limbs.Contains(collision.gameObject.tag))
+        if (occupant == null)
         {
-            occupant.transform.Find(collision.gameObject.tag).gameObject.SetActive(true);
-            collision.gameObject.SetActive(false);
-        }
-        int attached = 0;
-        foreach(string limb in limbs)
-        {
-            if (occupant.transform.Find(limb).gameObject.activeSelf)
+            if (collision.gameObject.tag == "Patient")
             {
-                attached++;
+                occupant = collision.gameObject;
             }
         }
-        if (attached == 4)
+        if (occupant != null)
         {
-            occupant.GetComponent<patient>().Go();
-            occupant = null;
+            List<string> limbs = new List<string>(new string[] { "ArmL", "ArmR", "LegL", "LegR" });
+            if (limbs.Contains(collision.gameObject.tag) && collision.gameObject.GetComponent<limb>().IsPickedUp && !occupant.transform.Find(collision.gameObject.tag).gameObject.activeSelf)
+            {
+                occupant.transform.Find(collision.gameObject.tag).gameObject.SetActive(true);
+                collision.gameObject.SetActive(false);
+            }
+            int attached = 0;
+            foreach (string limb in limbs)
+            {
+                if (occupant.transform.Find(limb).gameObject.activeSelf)
+                {
+                    attached++;
+                }
+            }
+            if (attached == 4)
+            {
+                occupant.GetComponent<patient>().Go();
+                occupant = null;
+            }
         }
-        
     }
 }

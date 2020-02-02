@@ -7,12 +7,14 @@ public class patient : MonoBehaviour
 
     public Vector3 getupOffset;
     public Vector3 getupRotation;
-    public bool going = false;
+    public Vector3 godownOffset = new Vector3(0, -2, 3.2f);
+    public Vector3 godownRotation;
+    bool going = true;
     public float mult = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetComponent<Animator>().SetBool("IsRunning", true);
     }
 
     // Update is called once per frame
@@ -22,6 +24,10 @@ public class patient : MonoBehaviour
         {
             transform.Translate(0, 0, mult);
         }
+        else
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
     }
 
     public void Go()
@@ -30,15 +36,18 @@ public class patient : MonoBehaviour
         transform.Translate(getupOffset);
         GetComponent<Animator>().SetBool("IsRunning", true);
         going = true;
-        transform.parent = null;
+        //transform.parent = null;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider c)
     {
-        if(collision.gameObject.tag == "Bed")
+        if(c.gameObject.tag == "Bed")
         {
-            transform.parent = collision.gameObject.transform;
-            transform.localPosition = new Vector3(0, -2, 3.2f);
+            //transform.parent = c.gameObject.transform;
+            transform.position = c.gameObject.transform.position + godownOffset;
+            transform.rotation = Quaternion.Euler(godownRotation);
+            GetComponent<Animator>().SetBool("IsRunning", false);
+            going = false;
         }
     }
 }

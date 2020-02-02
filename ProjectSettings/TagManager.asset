@@ -8,6 +8,7 @@ TagManager:
   - ArmR
   - LegL
   - LegR
+  - Bed
   layers:
   - Default
   - TransparentFX
