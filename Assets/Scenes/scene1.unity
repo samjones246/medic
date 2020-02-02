@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 2495216}
   - component: {fileID: 2495215}
   - component: {fileID: 2495214}
+  - component: {fileID: 2495218}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -215,6 +216,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2495218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2495213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7009f5d643f05f44aac57f40ca8f4ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayMin: 0.2
+  delayMax: 1.5
+  toSpawn:
+  - {fileID: 4915960826886270682, guid: 134d4d19ce5c043e4a1c29296ce7b72c, type: 3}
+  - {fileID: 9105487029435936669, guid: fecebdc0e52e3437b9ce2c48dfbd9aac, type: 3}
+  - {fileID: 3630637547711533441, guid: dd522999dd1814580a8beacab581d1e4, type: 3}
+  - {fileID: 625748592429228352, guid: 96fcfdd9d2f7942e8a7239063bb86179, type: 3}
+  target: {fileID: 1899948158}
+  range: 50
+  speed: 0.7
+  rotateSpeed: 50
 --- !u!1001 &100138969
 PrefabInstance:
   m_ObjectHideFlags: 0
