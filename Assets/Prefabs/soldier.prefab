@@ -267,8 +267,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getupOffset: {x: 5, y: 1, z: 0}
   getupRotation: {x: 90, y: 0, z: 0}
-  godownOffset: {x: 0, y: 3, z: 3.2}
-  godownRotation: {x: 270, y: 0, z: 0}
+  godownOffset: {x: 0, y: 3.5, z: -3}
+  godownRotation: {x: 270, y: 0, z: 180}
   mult: 0.25
 --- !u!1 &2092959687021846651
 GameObject:

@@ -9,6 +9,7 @@ public class PatientSpawner : MonoBehaviour
     public float minDelay;
     public float maxDelay;
     public float limbMissingChance;
+    public float score;
     public bool inverted = false;
     float lastSpawn;
     float delay;
