@@ -2,44 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LimbSpawner : MonoBehaviour
+public class LimbSpawner : TimedSpawner
 {
-    private float deltaTime = 0;
-
-    public float delayMin;
-    public float delayMax;
-
     public List<GameObject> toSpawn;
+    public GameObject effect;
 
     public GameObject target;
+
     public float range;
 
     public float speed;
     public float rotateSpeed;
 
-    private float nextDelay;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        nextDelay = Random.Range(delayMin, delayMax);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        deltaTime += Time.deltaTime;
-
-        if (deltaTime >= nextDelay)
-        {
-            Spawn();
-
-            deltaTime -= nextDelay;
-            nextDelay = Random.Range(delayMin, delayMax);
-        }
-    }
-
-    void Spawn()
+    protected override void Spawn()
     {
         Vector2 offset = Quaternion.Euler(0, 0, Random.Range(0, 360)) * new Vector2(1, 0) * range;
 
@@ -56,5 +31,7 @@ public class LimbSpawner : MonoBehaviour
         Rigidbody rigidBody = obj.GetComponent<Rigidbody>();
         rigidBody.angularVelocity = rotationVelocity;
         rigidBody.velocity = velocity;
+
+        Instantiate(effect, position, Quaternion.identity);
     }
 }
