@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    public float score;
+    public int score;
+    public int lives = 20;
+    public GUIStyle style;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class Score : MonoBehaviour
     }
     private void OnGUI()
     {
-        GUI.Label(new Rect(10, 10, 50, 20), "Score: " + score);
+        GUI.Label(new Rect(10, 10, 150, 60), "Score: " + score, style);
+        GUI.Label(new Rect(10, 75, 150, 60), "Lives:  " + lives, style);
     }
 }
