@@ -30,6 +30,19 @@ public class bed : MonoBehaviour
             occupant.transform.Find(collision.gameObject.tag).gameObject.SetActive(true);
             collision.gameObject.SetActive(false);
         }
+        int attached = 0;
+        foreach(string limb in limbs)
+        {
+            if (occupant.transform.Find(limb).gameObject.activeSelf)
+            {
+                attached++;
+            }
+        }
+        if (attached == 4)
+        {
+            occupant.GetComponent<patient>().Go();
+            occupant = null;
+        }
         
     }
 }
