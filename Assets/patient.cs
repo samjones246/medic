@@ -11,12 +11,20 @@ public class patient : MonoBehaviour
     public Vector3 godownRotation;
     bool going = true;
 	bool healed = false;
+    public bool missingLegs = false;
     public float mult = 0.5f;
     GameObject targetBed;
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Animator>().SetBool("IsRunning", true);
+        if (!missingLegs)
+        {
+            GetComponent<Animator>().SetBool("IsRunning", true);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("IsCrawling", true);
+        }
     }
 
     // Update is called once per frame
@@ -74,6 +82,7 @@ public class patient : MonoBehaviour
                 transform.position = c.gameObject.transform.position + godownOffset;
                 transform.rotation = Quaternion.Euler(godownRotation);
                 GetComponent<Animator>().SetBool("IsRunning", false);
+                GetComponent<Animator>().SetBool("IsCrawling", false);
                 going = false;
                 c.gameObject.GetComponent<bed>().occupant = this.gameObject;
             }

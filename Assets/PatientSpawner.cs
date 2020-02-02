@@ -50,18 +50,19 @@ public class PatientSpawner : MonoBehaviour
     void PrepareLimbs(GameObject soldier)
     {
         string[] limbNames = { "ArmL", "ArmR", "LegL", "LegR" };
-        foreach (string limbName in limbNames)
+        int numMissing = Random.Range(1, 4);
+        List<string> missingLimbNames = new List<string>();
+        for(int i = 0; i < numMissing; i++)
         {
-            bool missing;
-            if(Random.value < limbMissingChance)
+            missingLimbNames.Add(limbNames[Random.Range(0, 4)]);
+        }
+        foreach (string limbName in missingLimbNames)
+        {
+            soldier.transform.Find(limbName).gameObject.SetActive(false);
+            if(limbName == "LegR" || limbName == "LegL")
             {
-                missing = true;
+                soldier.GetComponent<patient>().missingLegs = true;
             }
-            else
-            {
-                missing = false;
-            }
-            soldier.transform.Find(limbName).gameObject.SetActive(missing);
         }
     }
 }

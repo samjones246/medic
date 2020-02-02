@@ -5,7 +5,7 @@ using UnityEngine;
 public class limb : MonoBehaviour
 {
     public GameObject player;
-    bool inRange = false;
+    public bool inRange = false;
 
     Color baseColor;
     public Color activeColor = Color.green;
@@ -70,7 +70,7 @@ public class limb : MonoBehaviour
             {
                 IsPickedUp = false;
             }
-            else if (inRange)
+            else if (inRange && player.GetComponent<player>().heldLimb.Equals(gameObject))
             {
                 IsPickedUp = true;
             }
@@ -83,7 +83,7 @@ public class limb : MonoBehaviour
             GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
 
-        if (inRange && !IsPickedUp)
+        if (inRange && !IsPickedUp && player.GetComponent<player>().heldLimb.Equals(gameObject))
         {
             GetComponent<Renderer>().material.color = activeColor;
         }
