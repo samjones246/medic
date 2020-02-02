@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
-    float mult = 0.25f;
+    public float mult = 0.25f;
     float h = 0;
     float v = 0;
     float targetY = 0f;

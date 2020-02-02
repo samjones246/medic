@@ -25,9 +25,9 @@ public class bed : MonoBehaviour
 
         List<string> limbs = new List<string>(new string[]{ "ArmL", "ArmR", "LegL", "LegR" });
         Debug.Log(collision.gameObject.name);
-        if (limbs.Contains(collision.gameObject.name))
+        if (limbs.Contains(collision.gameObject.tag))
         {
-            occupant.transform.Find(collision.gameObject.name).gameObject.SetActive(true);
+            occupant.transform.Find(collision.gameObject.tag).gameObject.SetActive(true);
             collision.gameObject.SetActive(false);
         }
         

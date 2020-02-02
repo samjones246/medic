@@ -42,6 +42,7 @@ public class limb : MonoBehaviour
     void Start()
     {
         baseColor = GetComponent<Renderer>().material.color;
+        player = GameObject.FindWithTag("Player");
     }
 
     void OnTriggerEnter(Collider collider)

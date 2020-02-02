@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 625748592429228359}
   m_Layer: 0
   m_Name: LegR
-  m_TagString: Untagged
+  m_TagString: LegR
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

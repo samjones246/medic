@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3630637547711533446}
   m_Layer: 0
   m_Name: LegL
-  m_TagString: Untagged
+  m_TagString: LegL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
