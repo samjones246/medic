@@ -31,8 +31,11 @@ public class bed : MonoBehaviour
             List<string> limbs = new List<string>(new string[] { "ArmL", "ArmR", "LegL", "LegR" });
             if (limbs.Contains(collision.gameObject.tag) && collision.gameObject.GetComponent<limb>().IsPickedUp && !occupant.transform.Find(collision.gameObject.tag).gameObject.activeSelf)
             {
-                occupant.transform.Find(collision.gameObject.tag).gameObject.SetActive(true);
-                collision.gameObject.SetActive(false);
+                if (collision.gameObject.GetComponent<Renderer>().material.name == occupant.transform.Find("Character").gameObject.GetComponent<Renderer>().material.name)
+                {
+                    occupant.transform.Find(collision.gameObject.tag).gameObject.SetActive(true);
+                    collision.gameObject.SetActive(false);
+                }
             }
             int attached = 0;
             foreach (string limb in limbs)

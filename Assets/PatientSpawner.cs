@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PatientSpawner : MonoBehaviour
 {
-    public GameObject soldierPrefab;
+    public List<GameObject> soldierPrefabs;
     public List<GameObject> beds;
     public float minDelay;
     public float maxDelay;
@@ -39,6 +39,7 @@ public class PatientSpawner : MonoBehaviour
                 offset = new Vector3(-80, 0, 0);
                 spawnRotation = Quaternion.Euler(0, 90, 0);
             }
+            GameObject soldierPrefab = soldierPrefabs[Random.Range(0, soldierPrefabs.Count)];
             spawnLocation = targetBed.transform.position + offset;
             GameObject soldier = Instantiate<GameObject>(soldierPrefab, spawnLocation, spawnRotation);
             PrepareLimbs(soldier);
