@@ -18,6 +18,10 @@ public class TimedDespawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GetComponent<limb>().IsPickedUp)
+        {
+            born = Time.timeSinceLevelLoad;
+        }
         if (Time.timeSinceLevelLoad - born >= lifetime)
         {
             Destroy(gameObject);

@@ -24,7 +24,7 @@ public class PatientSpawner : MonoBehaviour
     {
         if(Time.time - lastSpawn >= delay)
         {
-            GameObject targetBed = beds[Mathf.FloorToInt(Random.Range(0, beds.Count))];
+            GameObject targetBed = beds[Random.Range(0, beds.Count)];
             Vector3 offset;
             Quaternion spawnRotation;
             Vector3 spawnLocation;

@@ -14,10 +14,7 @@ public class bed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("f"))
-        {
-            occupant.transform.Find("LegL").gameObject.SetActive(false);
-        }
+
     }
 
     private void OnCollisionEnter(Collision collision)

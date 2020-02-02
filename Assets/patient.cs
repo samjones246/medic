@@ -28,6 +28,10 @@ public class patient : MonoBehaviour
         {
             GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
+        if(Vector3.Distance(Vector3.zero, transform.position) > 200)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void Go()
