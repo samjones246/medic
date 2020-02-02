@@ -852,8 +852,9 @@ MonoBehaviour:
   - {fileID: 237462622}
   - {fileID: 1609691100}
   - {fileID: 925745375}
-  minDelay: 3
-  maxDelay: 10
+  minDelay: 15
+  maxDelay: 20
+  delayRate: 0.00025
   limbMissingChance: 0.5
   score: 0
   inverted: 0
@@ -1657,8 +1658,9 @@ MonoBehaviour:
   - {fileID: 894490960}
   - {fileID: 1167042917}
   - {fileID: 147776520}
-  minDelay: 3
-  maxDelay: 10
+  minDelay: 15
+  maxDelay: 20
+  delayRate: 0.00025
   limbMissingChance: 0.5
   score: 0
   inverted: 1
