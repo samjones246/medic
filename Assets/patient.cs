@@ -67,9 +67,9 @@ public class patient : MonoBehaviour
 
     private void OnTriggerEnter(Collider c)
     {
-        if(c.gameObject.tag == "Bed" && (c.gameObject.Equals(targetBed) || targetBed==null))
+        if(!healed && (c.gameObject.tag == "Bed" && (c.gameObject.Equals(targetBed) || targetBed==null)))
         {
-            if (c.gameObject.GetComponent<bed>().occupant == null && !healed)
+            if (c.gameObject.GetComponent<bed>().occupant == null)
             {
                 transform.position = c.gameObject.transform.position + godownOffset;
                 transform.rotation = Quaternion.Euler(godownRotation);
