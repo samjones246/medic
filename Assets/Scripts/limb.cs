@@ -64,15 +64,16 @@ public class limb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("e"))
+        if (Input.GetKeyDown("e") && !GameObject.Find("Score").GetComponent<Score>().paused)
         {
             if (IsPickedUp)
             {
                 IsPickedUp = false;
             }
-            else if (inRange && player.GetComponent<player>().heldLimb.Equals(gameObject))
+            else if (inRange && player.GetComponent<player>().heldLimb.Equals(gameObject) && !GameObject.Find("Score").GetComponent<Score>().paused)
             {
                 IsPickedUp = true;
+                gameObject.GetComponent<Renderer>().enabled = true;
             }
         }
 
