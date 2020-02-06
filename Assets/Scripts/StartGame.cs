@@ -13,4 +13,8 @@ public class StartGame : MonoBehaviour
         SceneManager.LoadSceneAsync(sceneBuildIndex, LoadSceneMode.Single);
         
     }
+    public void QuitGameF()
+    {
+        Application.Quit();
+    }
 }
