@@ -63,6 +63,11 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 126268e061969194b87a19b538ab63a4,
         type: 3}
       propertyPath: m_Name
+      value: Bed Object
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 126268e061969194b87a19b538ab63a4,
+        type: 3}
+      propertyPath: m_TagString
       value: Bed
       objectReference: {fileID: 0}
     m_RemovedComponents: []
